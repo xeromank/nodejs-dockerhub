@@ -14,6 +14,9 @@ jobs:
     # 현재 시간을 YYYYMMDDHHMMSS 형식으로 설정 update
     - name: Get current time
       run: echo "CURRENT_TIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
+
+    - name: Get Git Commit Short HEAD
+      run: echo "TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
     
     - name: Log in to Docker Hub
       uses: docker/login-action@v1
@@ -27,4 +30,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: xeroman/nodejs-github-action:${{ env.CURRENT_TIME }}
+        tags: xeroman/nodejs-github-action:${{ env.TAG }}
