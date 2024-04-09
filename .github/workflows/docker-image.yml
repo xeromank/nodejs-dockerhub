@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    # 현재 시간을 YYYYMMDDHHMMSS 형식으로 설정
+    # 현재 시간을 YYYYMMDDHHMMSS 형식으로 설정 update
     - name: Get current time
       run: echo "CURRENT_TIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
     
